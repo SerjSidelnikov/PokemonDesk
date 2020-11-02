@@ -1,0 +1,18 @@
+.header {
+  background-color: #f5db13;
+  box-shadow: 0 4px 16px 0 rgba(1, 28, 64, 0.2);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  max-width: 1125px;
+  min-height: 90px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 157px;
+  height: 63px;
+  margin-right: auto;
+}

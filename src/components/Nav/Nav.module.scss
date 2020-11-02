@@ -1,0 +1,39 @@
+.list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.link {
+  display: inline-block;
+  padding-bottom: 15px;
+  font-size: 25px;
+  color: #212121;
+  text-decoration: none;
+}
+
+.linkActive {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    height: 3px;
+    background-color: #212121;
+    border-radius: 3px;
+  }
+}
