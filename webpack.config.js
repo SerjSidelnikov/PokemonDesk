@@ -8,7 +8,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   mode: NODE_ENV ? NODE_ENV : 'development',
-  entry: path.resolve(__dirname, 'src/index.tsx'),
+  entry: path.resolve(__dirname, 'src/index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
@@ -18,26 +18,31 @@ module.exports = {
       {
         test: /\.[tj]sx?$/,
         use: ['ts-loader'],
-        exclude: [/node_modules/],
+        exclude: /node_modules/,
       },
       {
-        test: /\.(s*)css$/,
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
         use: [
           'style-loader',
+          'css-modules-typescript-loader?modules',
           {
             loader: 'css-loader',
             options: {
               modules: {
                 mode: 'local',
                 localIdentName: '[name]__[local]__[hash:base64:5]',
-                auto: /\.modules\.\w+$/i,
+                auto: /\.module\.\w+$/i,
               },
-            }
+            },
           },
           'sass-loader',
         ],
       },
-    ]
+    ],
   },
   plugins: [
     new HTMLWebpackPlugin({
