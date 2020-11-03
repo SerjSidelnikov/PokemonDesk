@@ -15,6 +15,12 @@
     opacity: 0;
     transition: opacity 200ms ease;
   }
+
+  @media (min-width: 768px) {
+    &::before {
+      content: none;
+    }
+  }
 }
 
 .overlay {
@@ -29,17 +35,32 @@
   align-items: center;
   max-width: 1125px;
   min-height: 55px;
-  //min-height: 90px;
   margin: 0 auto;
   padding: 10px 25px;
+
+  @media (min-width: 768px) {
+    min-height: 90px;
+    padding: 20px;
+  }
+
+  @media (min-width: 1125px) {
+    min-height: 90px;
+    padding: 10px 20px;
+  }
 }
 
 .logo {
   width: 58px;
   height: auto;
-  //width: 157px;
-  //height: 63px;
   margin-right: auto;
+
+  @media (min-width: 768px) {
+    width: 121px;
+  }
+
+  @media (min-width: 1125px) {
+    width: 157px;
+  }
 }
 
 .toggleMenu {
@@ -91,6 +112,10 @@
     transition-duration: 0ms;
     transition-delay: 200ms;
     transition-timing-function: ease;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 
