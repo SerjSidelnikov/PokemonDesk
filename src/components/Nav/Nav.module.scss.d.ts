@@ -4,6 +4,9 @@ interface CssExports {
   'link': string;
   'linkActive': string;
   'list': string;
+  'logo': string;
+  'nav': string;
+  'open': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
