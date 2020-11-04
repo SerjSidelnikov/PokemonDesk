@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
+  /*font-family: 'Source Sans Pro', sans-serif;*/
+  font-weight: 400;
+  line-height: 1.2;
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+}

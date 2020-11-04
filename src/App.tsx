@@ -1,13 +1,17 @@
 import React from 'react';
-import cn from 'classnames';
 
-import './custom.css';
-import classes from './App.modules.scss';
+import classes from './App.module.scss';
+
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
-    <div className={cn(classes.header, 'color')}>
-      Yes, we Did It! This is App component!
+    <div className={classes.layout}>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 };
