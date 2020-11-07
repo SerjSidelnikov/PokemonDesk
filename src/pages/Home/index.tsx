@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import Parallax from '../../components/Parallax';
+import Heading from '../../components/Heading';
 
 import classes from './Home.module.scss';
 
@@ -14,10 +15,12 @@ const Home: React.FC = () => {
       <Header />
       <Layout className={classes.main}>
         <div className={classes.contentText}>
-          <h1>
+          <Heading variant="h1" className={classes.title}>
             <b>Find</b> all your favorite <b>Pokemon</b>
-          </h1>
-          <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
+          </Heading>
+          <Heading variant="h2" className={classes.text}>
+            You can know the type of Pokemon, its strengths, disadvantages and abilities
+          </Heading>
           <Button onClick={() => {}}>See pokemons</Button>
         </div>
         <div className={classes.contentParallax}>

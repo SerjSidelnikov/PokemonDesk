@@ -16,7 +16,13 @@
 }
 
 .contentText {
-  width: 516px;
+  flex: 1 0 516px;
+}
+
+.title,
+.text {
+  margin: 0;
+  margin-bottom: 64px;
 }
 
 .contentParallax {
