@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html,
 body {
   min-height: 100vh;
   margin: 0;
@@ -12,5 +15,4 @@ body {
   /*font-family: 'Source Sans Pro', sans-serif;*/
   font-weight: 400;
   line-height: 1.2;
-  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
 }

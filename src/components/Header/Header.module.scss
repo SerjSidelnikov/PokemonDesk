@@ -1,6 +1,8 @@
-.header {
+@import '../../variables';
+
+.root {
   position: relative;
-  background-color: #f5db13;
+  background-color: $third;
   box-shadow: 0 4px 16px 0 rgba(1, 28, 64, 0.2);
 
   &::before {
@@ -33,6 +35,7 @@
 .container {
   display: flex;
   align-items: center;
+  width: 100%;
   max-width: 1125px;
   min-height: 55px;
   margin: 0 auto;

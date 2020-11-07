@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-import classes from './Header.module.scss';
-
-import Logo from '../../images/svg/Logo.svg';
+import Logo from '../../assets/images/svg/Logo.svg';
 import Nav from '../Nav';
+
+import classes from './Header.module.scss';
 
 const Header: React.FC = () => {
   const [toggle, setToggle] = React.useState<boolean>(false);
@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={cn(classes.header, { [classes.overlay]: toggle })}>
+    <header className={cn(classes.root, { [classes.overlay]: toggle })}>
       <div className={classes.container}>
         <img className={classes.logo} src={Logo} alt="Pokemon" />
 
