@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
@@ -10,6 +11,12 @@ import Heading from '../../components/Heading';
 import classes from './Home.module.scss';
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/pokedex');
+  };
+
   return (
     <div className={classes.root}>
       <Header />
@@ -21,7 +28,7 @@ const Home: React.FC = () => {
           <Heading variant="h2" className={classes.text}>
             You can know the type of Pokemon, its strengths, disadvantages and abilities
           </Heading>
-          <Button onClick={() => {}}>See pokemons</Button>
+          <Button onClick={handleClick}>See pokemons</Button>
         </div>
         <div className={classes.contentParallax}>
           <Parallax />

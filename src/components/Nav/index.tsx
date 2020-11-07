@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 import Logo from '../../assets/images/svg/Logo.svg';
@@ -19,22 +20,22 @@ const MENU: IMenu[] = [
   {
     id: 1,
     value: 'Home',
-    link: '#',
+    link: '/',
   },
   {
     id: 2,
     value: 'Pokédex',
-    link: '#',
+    link: '/pokedex',
   },
   {
     id: 3,
     value: 'Legendaries',
-    link: '#',
+    link: '/legendaries',
   },
   {
     id: 4,
     value: 'Documentation',
-    link: '#',
+    link: '/documentation',
   },
 ];
 
@@ -46,9 +47,9 @@ const Nav: React.FC<Props> = ({ open }: Props) => {
       <ul className={classes.list}>
         {MENU.map(({ id, value, link }) => (
           <li key={id}>
-            <a href={link} className={classes.link}>
+            <NavLink to={link} className={classes.link} activeClassName={classes.linkActive} exact>
               {value}
-            </a>
+            </NavLink>
           </li>
         ))}
       </ul>
