@@ -1,0 +1,30 @@
+@import '../../variables';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+  overflow-x: hidden;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.contentText {
+  flex: 1 0 516px;
+}
+
+.title,
+.text {
+  margin: 0;
+  margin-bottom: 64px;
+}
+
+.contentParallax {
+  width: 793px;
+}

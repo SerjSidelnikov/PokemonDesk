@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .nav {
   position: absolute;
   top: 0;
@@ -6,7 +8,7 @@
   z-index: 2;
   width: 100%;
   padding: 40px 16px;
-  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
   box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
   border-radius: 0 0 16px 16px;
   transform: translateY(-150%);
@@ -75,11 +77,31 @@
 }
 
 .link {
+  position: relative;
   display: inline-block;
   font-size: 27px;
   color: #212121;
   text-decoration: none;
   text-shadow: 4px 4px 20px rgba(1, 28, 64, 0.2);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    height: 3px;
+    background-color: #212121;
+    border-radius: 3px;
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 
   @media (min-width: 768px) {
     padding-bottom: 15px;
@@ -93,18 +115,8 @@
 
 @media (min-width: 768px) {
   .linkActive {
-    position: relative;
-
     &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      display: block;
-      height: 3px;
-      background-color: #212121;
-      border-radius: 3px;
+      transform: scaleX(1);
     }
   }
 }
