@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { navigate } from 'hookrouter';
 
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
@@ -11,10 +11,8 @@ import Heading from '../../components/Heading';
 import classes from './Home.module.scss';
 
 const Home: React.FC = () => {
-  const history = useHistory();
-
   const handleClick = () => {
-    history.push('/pokedex');
+    navigate('/pokedex');
   };
 
   return (
