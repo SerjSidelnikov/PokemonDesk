@@ -1,0 +1,59 @@
+@import '../../variables';
+
+.root {
+  position: relative;
+  display: inline-block;
+  width: 135px;
+  height: 21px;
+}
+
+.target {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: $white;
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 6px;
+    height: 5px;
+    background: url('../../assets/images/svg/arrow.svg') no-repeat center / contain;
+    transform: translateY(-50%);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 14px;
+  background-color: $white;
+  box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+  border-radius: 8px;
+}
+
+.open {
+  display: flex;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
