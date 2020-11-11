@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     nameClean: 'bulbasaur',
     abilities: ['overgrow', 'chlorophyll'],
@@ -210,3 +210,5 @@ export default [
     weight: 29,
   },
 ];
+
+export default data;

@@ -7,12 +7,13 @@ import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import Parallax from '../../components/Parallax';
 import Heading from '../../components/Heading';
+import { LinkEnum } from '../../routes';
 
 import classes from './Home.module.scss';
 
 const Home: React.FC = () => {
   const handleClick = () => {
-    navigate('/pokedex');
+    navigate(LinkEnum.POKEDEX);
   };
 
   return (
