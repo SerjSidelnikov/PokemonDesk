@@ -5,17 +5,26 @@ import Footer from '../../components/Footer';
 import Heading from '../../components/Heading';
 import Filter from '../../components/Filter';
 import PokemonCard from '../../components/PokemonCard';
-
-import pokemons from './data';
+import usePokemons from '../../hooks/usePokemons';
 
 import classes from './Pokedex.module.scss';
 
 const Pokedex: React.FC = () => {
+  const { data, isLoading, isError } = usePokemons();
+
+  if (isLoading) {
+    return <div>Loading..</div>;
+  }
+
+  if (isError) {
+    return <div>Something wrong!</div>;
+  }
+
   return (
     <div className={classes.root}>
       <Layout className={classes.container}>
         <Heading className={classes.title}>
-          800 <b>Pokemons</b> for you to choose your favorite
+          {data?.total} <b>Pokemons</b> for you to choose your favorite
         </Heading>
 
         <input type="search" className={classes.search} placeholder="Encuentra tu pokémon..." />
@@ -27,7 +36,7 @@ const Pokedex: React.FC = () => {
         </div>
 
         <ul className={classes.list}>
-          {pokemons.map((item) => (
+          {data?.pokemons.map((item) => (
             <li key={item.id}>
               <PokemonCard pokemon={item} />
             </li>
