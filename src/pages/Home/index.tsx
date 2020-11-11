@@ -2,7 +2,6 @@ import React from 'react';
 import { navigate } from 'hookrouter';
 
 import Layout from '../../components/Layout';
-import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import Parallax from '../../components/Parallax';
@@ -18,7 +17,6 @@ const Home: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <Header />
       <Layout className={classes.main}>
         <div className={classes.contentText}>
           <Heading variant="h1" className={classes.title}>

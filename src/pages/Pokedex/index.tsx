@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Layout from '../../components/Layout';
-import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Heading from '../../components/Heading';
 import Filter from '../../components/Filter';
@@ -14,7 +13,6 @@ import classes from './Pokedex.module.scss';
 const Pokedex: React.FC = () => {
   return (
     <div className={classes.root}>
-      <Header />
       <Layout className={classes.container}>
         <Heading className={classes.title}>
           800 <b>Pokemons</b> for you to choose your favorite
