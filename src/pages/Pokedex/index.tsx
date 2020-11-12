@@ -12,10 +12,6 @@ import classes from './Pokedex.module.scss';
 const Pokedex: React.FC = () => {
   const { data, isLoading, isError } = usePokemons();
 
-  if (isLoading) {
-    return <div>Loading..</div>;
-  }
-
   if (isError) {
     return <div>Something wrong!</div>;
   }
@@ -23,25 +19,31 @@ const Pokedex: React.FC = () => {
   return (
     <div className={classes.root}>
       <Layout className={classes.container}>
-        <Heading className={classes.title}>
-          {data?.total} <b>Pokemons</b> for you to choose your favorite
-        </Heading>
+        {isLoading ? (
+          <div className={classes.loading}>Loading..</div>
+        ) : (
+          <>
+            <Heading className={classes.title}>
+              {data?.total} <b>Pokemons</b> for you to choose your favorite
+            </Heading>
 
-        <input type="search" className={classes.search} placeholder="Encuentra tu pokémon..." />
+            <input type="search" className={classes.search} placeholder="Encuentra tu pokémon..." />
 
-        <div className={classes.filters}>
-          <Filter />
-          <Filter />
-          <Filter />
-        </div>
+            <div className={classes.filters}>
+              <Filter />
+              <Filter />
+              <Filter />
+            </div>
 
-        <ul className={classes.list}>
-          {data?.pokemons.map((item) => (
-            <li key={item.id}>
-              <PokemonCard pokemon={item} />
-            </li>
-          ))}
-        </ul>
+            <ul className={classes.list}>
+              {data?.pokemons.map((item) => (
+                <li key={item.id}>
+                  <PokemonCard pokemon={item} />
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </Layout>
       <Footer />
     </div>
