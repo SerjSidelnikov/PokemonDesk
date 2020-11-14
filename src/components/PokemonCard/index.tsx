@@ -4,8 +4,8 @@ import Heading from '../Heading';
 
 import classes from './PokemonCard.module.scss';
 
-interface Pokemon {
-  nameClean: string;
+export interface Pokemon {
+  ['name_clean']: string;
   abilities: string[];
   stats: {
     hp: number;
@@ -18,10 +18,10 @@ interface Pokemon {
   types: string[];
   img: string;
   name: string;
-  baseExperience: number;
+  ['base_experience']: number;
   height: number;
   id: number;
-  isDefault: boolean;
+  ['is_default']: boolean;
   order: number;
   weight: number;
 }

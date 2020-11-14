@@ -1,3 +1,5 @@
+declare module '*.scss';
+
 declare module '*.svg' {
   import React = require('react');
 

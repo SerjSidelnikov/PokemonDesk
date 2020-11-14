@@ -2,22 +2,21 @@ import React from 'react';
 import { navigate } from 'hookrouter';
 
 import Layout from '../../components/Layout';
-import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import Parallax from '../../components/Parallax';
 import Heading from '../../components/Heading';
+import { LinkEnum } from '../../routes';
 
 import classes from './Home.module.scss';
 
 const Home: React.FC = () => {
   const handleClick = () => {
-    navigate('/pokedex');
+    navigate(LinkEnum.POKEDEX);
   };
 
   return (
     <div className={classes.root}>
-      <Header />
       <Layout className={classes.main}>
         <div className={classes.contentText}>
           <Heading variant="h1" className={classes.title}>
