@@ -1,17 +1,9 @@
 import React from 'react';
 
-import { Pokemon } from '../components/PokemonCard';
+import req from '../utils/request';
 
-interface IResponse {
-  total: number;
-  count: number;
-  offset: number;
-  limit: number;
-  pokemons: Pokemon[];
-}
-
-const usePokemons = () => {
-  const [data, setData] = React.useState<IResponse | null>(null);
+const useData = <T,>(endpoint: string, query: { [key: string]: string | number }, deps: any[] = []) => {
+  const [data, setData] = React.useState<T | null>(null);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<Error | null>(null);
 
@@ -20,8 +12,7 @@ const usePokemons = () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons?limit=12');
-        const result = await response.json();
+        const result = await req(endpoint, query);
 
         setData(result);
       } catch (e) {
@@ -30,7 +21,7 @@ const usePokemons = () => {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, deps);
 
   return {
     data,
@@ -39,4 +30,4 @@ const usePokemons = () => {
   };
 };
 
-export default usePokemons;
+export default useData;
