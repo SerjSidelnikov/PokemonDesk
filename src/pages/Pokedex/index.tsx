@@ -4,24 +4,20 @@ import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
 import Heading from '../../components/Heading';
 import Filter from '../../components/Filter';
-import PokemonCard, { Pokemon } from '../../components/PokemonCard';
+import PokemonCard from '../../components/PokemonCard';
 import useData from '../../hooks/useData';
+import useDebounce from '../../hooks/useDebouce';
+import { IPokemon, IPokemons } from '../../interface/pokemons';
 
 import classes from './Pokedex.module.scss';
-
-interface PokemonResponse {
-  total: number;
-  count: number;
-  offset: number;
-  limit: number;
-  pokemons: Pokemon[];
-}
 
 const Pokedex: React.FC = () => {
   const [searchValue, setSearchValue] = React.useState<string>('');
   const [query, setQuery] = React.useState<{ [key: string]: string | number }>({ limit: 12 });
 
-  const { data, isLoading, isError } = useData<PokemonResponse>('getPokemons', query, [searchValue]);
+  const debounceValue = useDebounce(searchValue, 500);
+
+  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debounceValue]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
@@ -60,7 +56,7 @@ const Pokedex: React.FC = () => {
           <div className={classes.loading}>Loading..</div>
         ) : (
           <ul className={classes.list}>
-            {data?.pokemons.map((item) => (
+            {data?.pokemons.map((item: IPokemon) => (
               <li key={item.id}>
                 <PokemonCard pokemon={item} />
               </li>
