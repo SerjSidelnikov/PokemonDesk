@@ -1,4 +1,5 @@
 import getUrlWithParamsConfig from './getUrlWithParamsConfig';
+import toCapitalizeFirstLetter from './toCapitalizeFirstLetter';
 
 describe('getUrlWithParamsConfig', () => {
   test('Должна принимать два аргумента "getPokemons" и пустой объект, на выходе получить объект с полями pathname, protocol, host и пустым query', () => {
@@ -32,5 +33,19 @@ describe('getUrlWithParamsConfig', () => {
       pathname: '/api/v1/pokemon/25',
       query: {},
     });
+  });
+});
+
+describe('toCapitalizeFirstLetter', () => {
+  test('Должна принять строку и возвращает строку, которая начинается с заглавной буквы, делая все остальные буквы маленького регистра', () => {
+    const result = toCapitalizeFirstLetter('pikachu');
+    const result2 = toCapitalizeFirstLetter('pikachu best pokemon');
+    const result3 = toCapitalizeFirstLetter('');
+    const result4 = toCapitalizeFirstLetter(' ');
+
+    expect(result).toEqual('Pikachu');
+    expect(result2).toEqual('Pikachu best pokemon');
+    expect(result3).toEqual('');
+    expect(result4).toEqual(' ');
   });
 });
