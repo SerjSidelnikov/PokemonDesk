@@ -5,14 +5,14 @@ import req from '../utils/request';
 const useData = <T,>(endpoint: string, query: { [key: string]: string | number }, deps: any[] = []) => {
   const [data, setData] = React.useState<T | null>(null);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isError, setIsError] = React.useState<Error | null>(null);
+  const [isError, setIsError] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    (async () => {
+    (async (): Promise<void> => {
       setIsLoading(true);
 
       try {
-        const result = await req(endpoint, query);
+        const result = await req<T>(endpoint, query);
 
         setData(result);
       } catch (e) {

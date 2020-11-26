@@ -2,22 +2,24 @@ import React from 'react';
 
 import Home from './pages/Home';
 import Pokedex from './pages/Pokedex';
+import Pokemon, { PokemonProps } from './pages/Pokemon';
 
 export enum LinkEnum {
   HOME = '/',
   POKEDEX = '/pokedex',
   LEGENDARIES = '/legendaries',
   DOCUMENTATION = '/documentation',
+  POKEMON = '/pokedex/:id',
 }
 
 interface IAccMenu {
-  [n: string]: () => JSX.Element;
+  [n: string]: (props: React.PropsWithChildren<any>) => JSX.Element;
 }
 
 interface IGeneralMenu {
   title: string;
   link: LinkEnum;
-  component: () => JSX.Element;
+  component: (props: React.PropsWithChildren<any>) => JSX.Element;
 }
 
 export const GENERAL_MENU: IGeneralMenu[] = [
@@ -43,7 +45,15 @@ export const GENERAL_MENU: IGeneralMenu[] = [
   },
 ];
 
-const routes = GENERAL_MENU.reduce((acc: IAccMenu, item: IGeneralMenu) => {
+const SECOND_ROUTES: IGeneralMenu[] = [
+  {
+    title: 'Pokemon',
+    link: LinkEnum.POKEMON,
+    component: ({ id }: PokemonProps) => <Pokemon id={id} />,
+  },
+];
+
+const routes = [...GENERAL_MENU, ...SECOND_ROUTES].reduce((acc: IAccMenu, item: IGeneralMenu) => {
   acc[item.link] = item.component;
   return acc;
 }, {});
